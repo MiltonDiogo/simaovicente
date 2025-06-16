@@ -191,9 +191,105 @@
                 Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-3ª Edição
             </p>
         </div>
-        
+
+          <!-- Carrossel de Imagens -->
+        <div class="event-slideshow">
+            <div class="slides-container">
+                <div class="slide active">
+                    <img src="31-1.jpg" alt="Workshop de IA Avançada">
+                </div>
+                <div class="slide">
+                    <img src="31-2.jpg" alt="Participantes do evento">
+                </div>
+                <div class="slide">
+                    <img src="31-3.jpg" alt="Sessão prática">
+                </div>
+                 <div class="slide">
+                    <img src="31-4.jpg" alt="Sessão prática">
+                </div>
+            </div>
+            
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+            
+            <div class="dots-container">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
         </div>
+
+            </div>
+               <div class="event-card animate">
+               <div class="event-date">
+            <h3>30 de Abril de 2025</h3>
+            <p>Luanda | 9h00-13h00<br>
+                Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-2ª Edição
+            </p>
+        </div>
+
+          <!-- Carrossel de Imagens -->
+        <div class="event-slideshow">
+            <div class="slides-container">
+                <div class="slide active">
+                    <img src="30-1.jpg" alt="Workshop de IA Avançada">
+                </div>
+                <div class="slide">
+                    <img src="30-3.jpg" alt="Sessão prática">
+                </div>
+                 <div class="slide">
+                    <img src="30-4.jpg" alt="Sessão prática">
+                </div>
+            </div>
+            
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+            
+            <div class="dots-container">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+<div class="event-card animate">
+               <div class="event-date">
+            <h3>31 de Janeiro de 2025</h3>
+            <p>Luanda | 9h00-13h00<br>
+                Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-1ª Edição
+            </p>
+        </div>
+
+        
+          <!-- Carrossel de Imagens -->
+        <div class="event-slideshow">
+            <div class="slides-container">
+                <div class="slide active">
+                    <img src="Janeiro-1.jpg" alt="Workshop de IA Avançada">
+                </div>
+                <div class="slide">
+                    <img src="Janeiro-2.jpg" alt="Sessão prática">
+                </div>
+                 <div class="slide">
+                    <img src="Janeiro-3.jpg" alt="Sessão prática">
+                </div>
+                 <div class="slide">
+                    <img src="Janeiro-4.jpg" alt="Sessão prática">
+                </div>
+            </div>
+            
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+            
+            <div class="dots-container">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+</div>
     </div>
 </section>
 
@@ -486,6 +582,50 @@
         }
     }
 
+// Função para inicializar os slideshows
+function initSlideshows() {
+    document.querySelectorAll('.event-slideshow').forEach(slideshow => {
+        const slides = slideshow.querySelectorAll('.slide');
+        const dots = slideshow.querySelectorAll('.dot');
+        let currentSlide = 0;
+        
+        // Função para mostrar um slide específico
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        // Event listeners para os botões de navegação
+        const prevBtn = slideshow.querySelector('.prev');
+        const nextBtn = slideshow.querySelector('.next');
+        
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+        
+        // Event listeners para os pontos
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // Inicializa o primeiro slide
+        showSlide(0);
+    });
+}
+
+// Inicializar quando o documento estiver carregado
+document.addEventListener('DOMContentLoaded', initSlideshows);
            </script>
 
 </body>
