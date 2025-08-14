@@ -2,664 +2,1450 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Psicólogo Simão Vicente - Mentor de psicólogos em Angola. Especialista em Inteligência Artificial aplicada à Psicologia e Educação. Eventos, mentorias e formação profissional.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="21.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psicólogo Simão Vicente | Mentoria, IA na Psicologia e Formação Profissional em Angola</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <title>Psicólogo Simão Vicente | Mentoria, IA na Psicologia e Formação Profissional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-     <link rel="stylesheet" href="2.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #02182f;
+            --turquoise: #0095d1;
+            --gold: #FFC857;
+            --light-gray: #F8F9FA;
+            --dark-bg: #020c1b;
+            --accent: #00c6ff;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-light: #ffffff;
+            --text-secondary: #a0aec0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        .Hi {
+            color: var(--accent);
+        }
+        
+        .logo2 {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        
+        .logo1 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            font-size: 1.6rem;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            font-weight: 700;
+        }
+        
+        .logo span:last-child {
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-top: 3px;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 111, 150, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 5%;
+            background: rgba(2, 28, 47, 0.95);
+        }
+        
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            position: relative;
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background: linear-gradient(135deg, var(--navy) 0%, #0d1b2a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(0, 149, 209, 0.1) 0%, rgba(2, 12, 27, 0) 70%);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--turquoise);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before {
+            width: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--turquoise);
+            margin-left: 15px;
+        }
+        
+        .section {
+            padding: 2rem 5%;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--text-light);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .profile-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.02);
+        }
+        
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .expertise-card {
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.3s ease;
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 197, 255, 0.3);
+        }
+        
+        .expertise-card:hover::before {
+            height: 100%;
+        }
+        
+        .expertise-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .events-section {
+            background: linear-gradient(to bottom, #02182f 0%, #020c1b 100%);
+        }
+        
+        .event-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .event-date {
+            background: var(--turquoise);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .event-content {
+            padding: 2rem;
+        }
+        
+        .event-slideshow {
+            position: relative;
+            max-width: 100%;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .slides-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .slide {
+            min-width: 100%;
+            transition: opacity 0.5s ease;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            padding: 16px;
+            margin-top: -25px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .prev {
+            left: 20px;
+        }
+        
+        .next {
+            right: 20px;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .dots-container {
+            text-align: center;
+            padding: 15px 0;
+        }
+        
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        
+        .dot.active, .dot:hover {
+            background-color: var(--turquoise);
+        }
+        
+        .mentoring-section {
+            background: linear-gradient(to bottom, #020c1b 0%, #02182f 100%);
+        }
+        
+        .mentoring-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .step-card {
+            padding: 2.5rem 2rem;
+            background: var(--card-bg);
+            margin-bottom: 20px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 197, 255, 0.3);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 5rem;
+            color: rgba(0, 149, 209, 0.1);
+            font-weight: 700;
+            line-height: 1;
+            z-index: 0;
+        }
+        
+        .step-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            margin-bottom: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 197, 255, 0.3);
+        }
+        
+        .benefit-item i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .testimonials {
+            background: linear-gradient(to bottom, #02182f 0%, #020c1b 100%);
+        }
+        
+        .testimonial-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-item {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2.5rem;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 197, 255, 0.3);
+        }
+        
+        .depoimento-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 3px solid var(--accent);
+        }
+        
+        .testimonial-content {
+            position: relative;
+        }
+        
+        .testimonial-text {
+            max-height: 250px;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            position: relative;
+        }
+        
+        .testimonial-text::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom, rgba(2, 12, 27, 0), var(--card-bg) 80%);
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .testimonial-text.expanded {
+            max-height: 2000px;
+        }
+        
+        .testimonial-text.expanded::after {
+            opacity: 0;
+        }
+        
+        .read-more {
+            color: var(--accent);
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+            display: block;
+            margin-top: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .read-more:hover {
+            color: var(--gold);
+        }
+        
+        .testimonial-item h4 {
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .contact-section {
+            background: linear-gradient(to bottom, #020c1b 0%, #02182f 100%);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-form {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 197, 255, 0.2);
+        }
+        
+        .contact-info {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-detail i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .whatsapp-button i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .whatsapp-button:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+        
+        /* Eventos passados */
+        .past-events {
+            margin-top: 4rem;
+        }
+        
+        .past-events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .past-event-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .past-event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .past-event-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .past-event-content {
+            padding: 1.5rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: rgba(2, 12, 27, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                transition: right 0.3s ease-in-out;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                gap: 1.5rem;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.8rem;
+                color: var(--text-light);
+                cursor: pointer;
+                z-index: 1001;
+            }
+            
+            .hero {
+                padding-top: 100px;
+                height: auto;
+                min-height: 100vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .cta-button.secondary {
+                margin-left: 0;
+            }
+            
+            .section {
+                padding: 4rem 5%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mentoring-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .slide img {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-    <div class="logo1">
-        <img src="21.png" class="logo2" style="left: -17px;position: relative;" alt="Logotipo de Simão Vicente">
-
-        <a href="#" class="logo"><span >Simão Vicente</span> 
-         <span class="Ps" style=" position: relative;
-         top: -15px;">Mentor de Psicólogos </span>
-        </a>
-    </div>
-        <nav>
+    <header id="header">
+        <div class="logo1">
+            <img src="21.png" class="logo2" alt="Logotipo de Simão Vicente">
+            <a href="#" class="logo">
+                <span>Simão Vicente</span> 
+                <span>Mentor de Psicólogos</span>
+            </a>
+        </div>
+        <nav id="nav">
             <a href="#">Início</a>
             <a href="#sobre">Sobre</a>
             <a href="#eventos">Eventos</a>
             <a href="#mentorias">Mentorias</a>
             <a href="#testemunhos">Testemunhos</a>
             <a href="#contato">Contacto</a>
-                    </nav>
-        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        </nav>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1 class="animate">Transformando a Prática <span class="Hi"> Psicológica com Inovação e Ética</span></h1>
+            <h1 class="animate">Transformando a Prática <span class="Hi">Psicológica com Inovação e Ética</span></h1>
             <p class="animate">Especialista em Inteligência Artificial aplicada à Psicologia e Educação</p>
-            <a href="#eventos" class="md animate">Próximos Eventos</a>
-        </div>
-    </section>
-
-    <!-- Seção Sobre -->
-    <section id="sobre" class="about-section">
-        <img src="simao2.png" alt="Psicólogo Simão Vicente" class="profile-img animate">
-        <div class="about-content">
-            <h2>Sobre Mim</h2>
-            <p>Simão Vicente, psicólogo Clínico com mais de 12 anos de experiência, pioneiro na integração de tecnologias de IA na prática psicológica em Angola. Especialista em Inteligência Artificial na Prática Clínica e Educação. Mentor de profissionais de saúde e educação</p>
-            
-            <div class="expertise-grid">
-                <div class="expertise-card animate">
-                    <h3>🧠 Psicologia </h3>
-                    <p>Método científico para avaliação, diagnósticos, intervenção e promoção do bem-estar</p>
-                </div>
-                <div class="expertise-card animate">
-                    <h3>🤖 IA Aplicada</h3>
-                    <p>Desenvolvimento de ferramentas de diagnóstico assistido por IA</p>
-                </div>
-                <div class="expertise-card animate">
-                    <h3>🎓 Serviços</h3>
-                    <p>Treinamentos, Workshops, Formação, Cursos e Mentorias para profissionais da saúde e educação.</p>
-                </div>
- 
-               
-   
-        </div>
-        
-        
-    </section>
- <!-- Seção Eventos FUTUROS -->
-<section id="eventos" class="events-section">
-    <div class="event-date-a">
-        <h2 class="section-title">Próximos Eventos</h2>
-    </div> <br> <br>
-    
-    <!-- Novo evento futuro (adicione seu conteúdo aqui) -->
-    <div class="event-card animate">
-        <div class="event-date">
-            <h3> 23 de Agosto de 2025</h3>
-            <p>Alvalade, Bairro dos Militares | 09h00 às 13h00<br>
-            Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-5ª Edição
-            </p>
-        </div>
-        
-        <div class="event-slide">
-            <img src="11.jpg" alt="Workshop de IA Avançada">    
-        </div>
-        
-        <div class="event-content">
-
-            
-        
-        <div class="event-content">
-            <div class="training-modules">
-                <div class="step-card">
-                    <h3>📚 O que é o Psicólogo do futuro?</h3>
-                    <p>O Psicólogo do futuro é um novo perfil de profissional da psicologia que integra ciência psicológica, tecnologia, posicionamento digital, inteligência de mercado e abordagens inovadoras de atendimento. Esse profissional deixa de ser apenas clínico tradicional para se tornar também educador, mentor, produtor de conteúdo, empreendedor digital e estrategista da própria carreira.</p>
-                    <br> 
-                    <p>Não se trata apenas de atender online, mas de reposicionar a psicologia como solução acessível, comportamento do público que busca informação,conexão e transformação de forma rápida, prática e confiavél.</p>
-                </div>
-
-                <div class="training-modules">
-                    <div class="step-card">
-                        <h3>📚 Módulo 1: Revolução da IA na Psicologia</h3>
-                        <ul>
-                            <li>Panorama actual da IA em saúde mental</li>
-                            <li>Casos reais de aplicação clínica</li>
-                            <li>Desafios éticos e humanos</li>
-                        </ul>
-                    </div>
-
-                    <div class="step-card">
-                        <h3>🛠️ Módulo 2: Ferramentas Práticas</h3>
-                        <ul>
-                            <li>Análise de sentimentos com IA</li>
-                            <li>Automação de documentos clínicos</li>
-                            <li>Sistemas preditivos para diagnósticos</li>
-                        </ul>
-                    </div>
-
-                    <div class="step-card">
-                        <h3>🚀 Módulo 3: Mentoria Psicólogo do Futuro 4.0</h3>
-                        <ul>
-                            <li>Competências essenciais para psicólogos</li>
-                            <li>Estratégias de posicionamento digital</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="training-details">
-                    <h3>🎯 Diferenciais Exclusivos:</h3>
-                    <div class="details-grid">
-                        <div class="detail-item">
-                            <i class="fas fa-user-tie"></i>
-                            <p>Ministrado por especialistas reconhecidos</p>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-laptop-code"></i>
-                            <p>Demonstração ao vivo de ferramentas</p>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-certificate"></i>
-                            <p>Automação de Processos</p>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-gift"></i>
-                            <p>1 mês de acompanhamento após a mentoria</p>
-                        </div>
-                    </div>
-                </div>
-            
-
-                <div class="step-card">
-                    <h3>🧠 Irás aprender a:</h3>
-                    ✅ Diagnosticar melhor e mais rápido; <br>
-✅ Elaborar relatórios clínicos em 5 minutos; <br>
-✅ Usar IA para analisar casos, estruturar sessões, personalizar o acompanhamento; <br>
-✅ Proteger o teu tempo e valorizar o teu saber. <br>
-                </div>
-        
-                <div class="step-card">
-                    <h3>💰Preço dos Ingressos:</h3>
-                    Até 10 de Agosto: 38.000 Kz <br>
-                    Após 10 de Agosto: 45.000 Kz <br>
-                    <p></p>
-                </div>
-
-                  <a href="https://neurais.click/PsicoFuturo" class="event-cta">
-                    <i class="fas fa-ticket"></i>
-                    Garantir Minha Vaga
-                </a>
-                
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Seção Eventos PASSADOS -->
-<section id="eventos-passados" class="events-section">
-    <div class="event-date-a">
-        <h2 class="section-title">Eventos Passados</h2>
-    </div>
-    <br> <br>
-    
-    <div class="event-card animate">
-        <div class="event-date">
-            <h3>28 de Junho de 2025</h3>
-            <p>Sala de Formação Marca Digital,Alvalade, Travessa dos Militares| 9h00-13h00<br>
-                Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-4ª Edição
-            </p>
-        </div>
-
-          <!-- Carrossel de Imagens -->
-        <div class="event-slideshow">
-            <div class="slides-container">
-                <div class="slide active">
-                    <img src="28-Julho.jpg" alt="Workshop de IA Avançada">
-                </div>
-                <div class="slide">
-                    <img src="28-Julho2.jpg" alt="Participantes do evento">
-                </div>
-                <div class="slide">
-                    <img src="28-Julho3.jpg" alt="Sessão prática">
-                </div>
-            </div>
-            
-            <a class="prev">&#10094;</a>
-            <a class="next">&#10095;</a>
-            
-            <div class="dots-container">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                
-            </div>
-        </div>
-
-    <!-- Evento passado (31 de maio) -->
-    <div class="event-card animate">
-        <div class="event-date">
-            <h3>31 de Maio de 2025</h3>
-            <p>Mediateca de Malanje | 9h00-13h00<br>
-                Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-3ª Edição
-            </p>
-        </div>
-
-          <!-- Carrossel de Imagens -->
-        <div class="event-slideshow">
-            <div class="slides-container">
-                <div class="slide active">
-                    <img src="31-1.jpg" alt="Workshop de IA Avançada">
-                </div>
-                <div class="slide">
-                    <img src="31-2.jpg" alt="Participantes do evento">
-                </div>
-                <div class="slide">
-                    <img src="31-3.jpg" alt="Sessão prática">
-                </div>
-                 <div class="slide">
-                    <img src="31-4.jpg" alt="Sessão prática">
-                </div>
-            </div>
-            
-            <a class="prev">&#10094;</a>
-            <a class="next">&#10095;</a>
-            
-            <div class="dots-container">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-        </div>
-
-            </div>
-               <div class="event-card animate">
-               <div class="event-date">
-            <h3>30 de Abril de 2025</h3>
-            <p>Luanda | 9h00-13h00<br>
-                Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-2ª Edição
-            </p>
-        </div>
-
-          <!-- Carrossel de Imagens -->
-        <div class="event-slideshow">
-            <div class="slides-container">
-                <div class="slide active">
-                    <img src="30-1.jpg" alt="Workshop de IA Avançada">
-                </div>
-                <div class="slide">
-                    <img src="30-3.jpg" alt="Sessão prática">
-                </div>
-                 <div class="slide">
-                    <img src="30-4.jpg" alt="Sessão prática">
-                </div>
-            </div>
-            
-            <a class="prev">&#10094;</a>
-            <a class="next">&#10095;</a>
-            
-            <div class="dots-container">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-        </div>
-
-<div class="event-card animate">
-               <div class="event-date">
-            <h3>31 de Janeiro de 2025</h3>
-            <p>Luanda | 9h00-13h00<br>
-                Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-1ª Edição
-            </p>
-        </div>
-
-        
-          <!-- Carrossel de Imagens -->
-        <div class="event-slideshow">
-            <div class="slides-container">
-                <div class="slide active">
-                    <img src="Janeiro-1.jpg" alt="Workshop de IA Avançada">
-                </div>
-                <div class="slide">
-                    <img src="Janeiro-2.jpg" alt="Sessão prática">
-                </div>
-                 <div class="slide">
-                    <img src="Janeiro-3.jpg" alt="Sessão prática">
-                </div>
-                 <div class="slide">
-                    <img src="Janeiro-4.jpg" alt="Sessão prática">
-                </div>
-            </div>
-            
-            <a class="prev">&#10094;</a>
-            <a class="next">&#10095;</a>
-            
-            <div class="dots-container">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-        </div>
-</div>
-    </div>
-</section>
-
-    <!-- Seção Mentorias Atualizada -->
-<section id="mentorias" class="mentoring-section">
-    <div class="event-date-a">
-    <h2 class="section-title">Programa de Mentoria Psicólogo do Futuro 4.0</h2>
-</div>
-    <div class="event-slide">
-        <img src="6.jpg" alt="Mentoria em IA para Psicólogos">    
-    </div>
-    
-    <div class="mentoring-steps">
-        <div class="step-card animate">
-            <div class="step-number">01</div>
-            <h3>Etapa 1: Fundamentos e Mentalidade</h3>
-            <div class="mentorship-details">
-                <p>🕒 Duração: 4 semanas</p>
-                <ul>
-                    <li>Diagnóstico inicial e definição de metas</li>
-                    <li>Mentalidade do psicólogo do futuro</li>
-                    <li>Posicionamento de mercado</li>
-                    <li>Introdução prática à IA</li>
-                </ul>
-                <p class="resultado">✅ Resultado: Plano de acção estruturado e mudança de mentalidade</p>
-            </div>
-        </div>
-
-        <div class="step-card animate">
-            <div class="step-number">02</div>
-            <h3>Etapa 2: Implementação Prática</h3>
-            <div class="mentorship-details">
-                <p>🕒 Duração: 4 semanas</p>
-                <ul>
-                    <li>Presença digital e redes sociais</li>
-                    <li>Automação de documentos clínicos</li>
-                    <li>Gestão de sessões com IA</li>
-                    <li>Ferramentas essenciais</li>
-                </ul>
-                <p class="resultado">✅ Resultado: Processos automatizados e +50% de eficiência</p>
-            </div>
-        </div>
-
-        <div class="step-card animate">
-            <div class="step-number">03</div>
-            <h3>Etapa 3: Escalabilidade</h3>
-            <div class="mentorship-details">
-                <p>🕒 Duração: 4 semanas</p>
-                <ul>
-                    <li>Expansão de serviços com IA</li>
-                    <li>Análise de resultados</li>
-                    <li>Métricas e KPIs</li>
-                    <li>Plano de acção futuro</li>
-                </ul>
-                <p class="resultado">✅ Resultado: Plano de crescimento para 6 meses</p>
-            </div>
-        </div>
-    </div>
- <br>
-    <div class="mentorship-benefits animate">
-        <h3 style="font-weight: 600;">📈 Resultados Garantidos:</h3>
-        <div class="benefits-grid">
-            <div class="benefit-item">
-                <i class="fas fa-clock"></i>
-                <p>Redução de 70% no tempo administrativo</p>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-chart-line"></i>
-                <p>Aumento de 40% na produtividade clínica</p>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-tools"></i>
-                <p>Domínio de 10+ ferramentas de IA</p>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-chart-line"></i>
-                <p>Aumento de eficiência</p>
-            </div> 
-            <br>
-            </div>
-        </div> <br>
-            <h3 style="font-weight: 600;">📈 Bónus Exclusivo:</h3><br>
-            
-            <div class="benefits-grid-2">
-            <div class="benefit-item">
-                <i class="fas fa-certificate"></i>
-                <p>Avaliação Inicial</p>
-            </div>
-              
-            <div class="benefit-item">
-                <i class="fas fa-certificate"></i>
-                <p>Sessão Individual</p>
-            </div>
-              
-            <div class="benefit-item">
-                <i class="fas fa-certificate"></i>
-                <p>Material de Apoio</p>
-            </div>
-               
-            <div class="benefit-item">
-                <i class="fas fa-certificate"></i>
-                <p>Eventos Exclusivos</p>
-            </div>
-                  
-            <div class="benefit-item">
-                <i class="fas fa-certificate"></i>
-                <p>Garantia de Satisfação</p>
-            </div>
-                
-            <div class="benefit-item">
-                <i class="fas fa-certificate"></i>
-                <p>Plano Revisados</p>
-            </div>
-    </div>
-    </div>
-</section>
-
-<section id="testemunhos" class="testimonials">
-<div class="event-date-a">
-    <h2 class="section-title">Depoimentos dos Formandos</h2>
-        <!-- Adicionar mais testemunhos -->
-    </div>
-    <br> <br>
-        <div class="testimonial-carousel">
-     <div class="testimonial-item active">
-            <img src="original.jpg" class="depoimento-img" alt="Teobalda Mateus">
-            <h4>Teobalda Mateus - Psicóloga Clínica</h4>
-            <div class="testimonial-content">
-                <div class="testimonial-text">
-                      <p>«Antes de conhecer o treinamento Psicólogo do Futuro, minhas expectativas profissionais eram quase inexistentes. Eu havia aprendido, com o tempo, a não criar muitas expectativas para não me frustrar. Estava sobrecarregada com a carga horária intensa e uma demanda absurda de relatórios — mal sobrava tempo para mim, para simplesmente descomprimir.</p>
-                       <br>
-
-                    <p>Confesso que, no início, fiquei assustada. Tinha medo de me viciar na ferramenta, de perder minha autonomia, de acabar procrastinando ainda mais por não dominar as tecnologias envolvidas. Mas essa visão mudou completamente. Percebi que os resultados do treinamento não dependem apenas da ferramenta em si, mas do nosso próprio comprometimento com o processo.</p>
-                      <br>
-                   <p> Após o treinamento, experimentei um verdadeiro despertar de mente. Mudou a minha forma de pensar e agir. Hoje, vejo essa ferramenta como uma aliada essencial, principalmente na gestão do tempo, o que me permite realizar minhas actividades com mais leveza e controle.</p>
-                        <br>
-                    <p>Recomendo que qualquer profissional faça esse treinamento — nem que seja por curiosidade. O futuro já começou, e quem não se permitir esse despertar vai acabar ficando preso no passado e muito limitado em sua actuação.»</p>
-             
-                </div>
-                <span class="read-more" onclick="toggleText(this)">Ver mais...</span>
-            </div>
-        </div>
-            <div class="testimonial-item active">
-            <img src="2.jpg" class="depoimento-img" alt=" Maria Lukamba ">
-            <h4>Maria Lukamba - Psicóloga Clínica e Professora </h4>
-            <div class="testimonial-content">
-                <div class="testimonial-text">
-                    <p>«Antes, eu pensava que a inteligência artificial era um bicho de sete cabeças, coisa mesmo de outro mundo. Mas, olha, participar nesta formação: <span class="T"> Psicólogo do Futuro</span>: Inteligência Artificial na prática Clínica e Escolar, foi uma bênção grande na minha vida. Abriu a minha mente, sim, para coisas que eu nunca imaginei.</p>
-                         <br>
-                   <p> Apesar de eu não ser boa com informática — confesso, não é o meu forte — com a inteligência artificial eu senti um apoio que não acaba. É um suporte infinito, uma coisa que rompe barreiras, desfaz bloqueios, dá uma força mesmo!</p>
-                          <br>
-                   <p>Foi uma mais-valia enorme. Abriu horizontes grandes, mostrou-me que posso chegar a patamares que antes pareciam incansáveis.</p>
-                           <br>
-                   <p> Eu, sinceramente, não fazia ideia do impacto tão grande que essa ferramenta podia ter na nossa vida profissional e até pessoal. Gostei imenso de descobrir como ela funciona, como podemos usar a nosso favor, e os resultados... os resultados são muitos e muito bons.</p>
-                            <br>
-                    <p> Agora, vejo tudo com outros olhos. A inteligência artificial não veio para substituir ninguém — veio para nos dar asas.»</p>
-             
-                </div>
-                <span class="read-more" onclick="toggleText(this)">Ver mais...</span>
-            </div>
-        </div>
-     
-
-<div class="testimonial-item active">
-            <img src="3.jpg" class="depoimento-img" alt=" Fatima Chicolate ">
-            <h4>Fátima Chicolate - Psicóloga </h4>
-            <div class="testimonial-content">
-                <div class="testimonial-text">
-                           <p>Antes de participar no <span class="T"> Treinamento Psicólogo do Futuro</span>, as minhas expectativas profissionais estavam centradas na prática clínica tradicional. A maioria dos meus atendimentos seguia uma abordagem convencional, e, apesar de buscar constantemente actualizações, sentia que algo estava a mudar no cenário da Psicologia — especialmente no que se referia às novas tecnologias — sem que eu soubesse exactamente como acompanhar essa transformação.</p>
-                   <br>
-           <p> Da inteligência artificial, via com certo ceticismo e até algum receio. Parecia algo distante da realidade da prática clínica. No entanto, com o treinamento, a minha visão mudou de forma significativa. Compreendi como a IA pode ser uma aliada poderosa para ampliar o impacto do nosso trabalho, optimizar tarefas, criar conteúdos relevantes e até melhorar a nossa organização profissional e comunicação com o público.</p>
-                       <br>
-           <p> Em termos Pessoal e profissional, houve uma mudança claramente profunda. Passei a olhar para a minha actuação de forma mais estratégica e inovadora. Sinto-me mais preparada para lidar com os desafios contemporâneos da profissão, com ferramentas e recursos que antes me pareciam inacessíveis ou irrelevantes. O treinamento proporcionou-me clareza, autonomia e, sobretudo, confiança para expandir os meus serviços de forma ética e alinhada com as novas exigências do mercado.</p>
-               <br>
-           <p> Sim, recomendaria o <span class="T"> Treinamento Psicólogo do Futuro</span> a outros profissionais.</p>       
-                </div>
-                <span class="read-more" onclick="toggleText(this)">Ver mais...</span>
-            </div>
-        </div>
-     
- 
-<div class="testimonial-item active">
-            <img src="4.jpg" class="depoimento-img" alt=" Fatima Chicolate ">
-            <h4>Luísa Danta - Psicóloga </h4>
-            <div class="testimonial-content">
-                <div class="testimonial-text">
-                                           <p>Tive a honra de participar no  <span class="T">Treinamento Psicólogo do Futuro</span>: Inteligência Artificial na Prática Clínica. E digo com firmeza: foi uma viragem na forma como eu exerço a psicologia.</p>
-                       
-                   <p> Hoje, graças à formação, uso ferramentas que me permitem tirar o máximo partido do meu tempo e da minha prática. Ganhei em:</p>
-                       <br>
-                       <ul>
-                    <li>Minimizar o tempo nas tarefas administrativas e repetitivas;</li> 
-                    
-                     <li>Organizar melhor o meu trabalho, com foco e método;</li> 
-                    
-                    <li>Criar novas estratégias de planificação com mais criatividade e inteligência;</li> 
-                    
-                    <li>Ter respostas mais assertivas, rápidas e adaptadas a cada caso;</li> 
-                    
-                   <li> E, sobretudo, manter ligações activas com o mundo — com outros profissionais, com conhecimento novo, com possibilidades sem fim.</li>
-                    </ul>
-                    <br>
-                    <p> A inteligência artificial não veio para complicar — veio para potenciar. E eu sou prova viva disso.</p>
-                    <br>
-                   <p> Por isso, deixo aqui um apelo com todo o coração e profissionalismo:
-                    Venham ser do futuro. Participem. Aproveitem esta oportunidade. A IA está ao nosso lado — e está a mudar tudo.»</p> 
-       
-                </div>
-                <span class="read-more" onclick="toggleText(this)">Ver mais...</span>
-            </div>
-        </div>
-     
-            
-    </div>
-</section>
-
-
-    <section id="contato" class="events-section">
-        <h2 class="section-title">Entre em Contacto</h2>
-        <div class="contact-section">
-            <form>
-                <input type="text" placeholder="Nome" required>
-                <input type="email" placeholder="Email" required>
-                <input type="tel" placeholder="Telemóvel">
-                <select required>
-                    <option value="">Tipo de Interesse</option>
-                    <option>Palestra</option>
-                    <option>Treinamento</option>
-                    <option>Workshop</option>
-                    <option>Curso</option>
-                    <option>Mentoria</option>
-                    <option>Outro</option>
-                </select>
-                <button type="submit">Quero Falar com a Equipa</button>
-            </form>
-            
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> simao.vic20@gmail.com</p>
-                <a href="https://wa.me/244943353939" target="_blank" class="cta-button">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <p><i class="fas fa-map-marker-alt"></i> <span class="T">Alvalade</span>,Travessa dos Militares, Luanda, Angola</p>
+            <div class="cta-buttons animate delay-1">
+                <a href="#eventos" class="cta-button">Próximos Eventos</a>
+                <a href="#mentorias" class="cta-button secondary">Conhecer Mentorias</a>
             </div>
         </div>
     </section>
 
+    <section id="sobre" class="section">
+        <div class="container">
+            <h2 class="section-title animate">Sobre Mim</h2>
+            <div class="about-section">
+                <img src="simao2.png" alt="Psicólogo Simão Vicente" class="profile-img animate">
+                <div class="about-content">
+                    <h2 class="animate delay-1">Simão Vicente</h2>
+                    <p class="animate delay-1">Psicólogo Clínico com mais de 12 anos de experiência, pioneiro na integração de tecnologias de IA na prática psicológica em Angola. Especialista em Inteligência Artificial na Prática Clínica e Educação. Mentor de profissionais de saúde e educação.</p>
+                    
+                    <div class="expertise-grid">
+                        <div class="expertise-card animate delay-1">
+                            <h3>🧠 Psicologia</h3>
+                            <p>Método científico para avaliação, diagnósticos, intervenção e promoção do bem-estar</p>
+                        </div>
+                        <div class="expertise-card animate delay-2">
+                            <h3>🤖 IA Aplicada</h3>
+                            <p>Desenvolvimento de ferramentas de diagnóstico assistido por IA</p>
+                        </div>
+                        <div class="expertise-card animate delay-3">
+                            <h3>🎓 Serviços</h3>
+                            <p>Treinamentos, Workshops, Formação, Cursos e Mentorias para profissionais da saúde e educação.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    
+    <section id="eventos" class="section events-section">
+        <div class="container">
+            <h2 class="section-title animate">Próximos Eventos</h2>
+            
+            <div class="event-card animate">
+                <div class="event-date">
+                    <h3>23 de Agosto de 2025</h3>
+                    <p>Alvalade, Bairro dos Militares | 09h00 às 13h00</p>
+                </div>
+                
+                <div class="event-content">
+                    <h3>Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-5ª Edição</h3>
+                    
+                    <div class="training-modules">
+                        <div class="step-card">
+                            <h3>📚 O que é o Psicólogo do futuro?</h3>
+                            <p>O Psicólogo do futuro é um novo perfil de profissional da psicologia que integra ciência psicológica, tecnologia, posicionamento digital, inteligência de mercado e abordagens inovadoras de atendimento.</p>
+                        </div>
 
+                        <div class="training-modules">
+                            <div class="step-card">
+                                <h3>📚 Módulo 1: Revolução da IA na Psicologia</h3>
+                                <ul>
+                                    <li>Panorama actual da IA em saúde mental</li>
+                                    <li>Casos reais de aplicação clínica</li>
+                                    <li>Desafios éticos e humanos</li>
+                                </ul>
+                            </div>
 
-    <!-- Footer -->
+                            <div class="step-card">
+                                <h3>🛠️ Módulo 2: Ferramentas Práticas</h3>
+                                <ul>
+                                    <li>Análise de sentimentos com IA</li>
+                                    <li>Automação de documentos clínicos</li>
+                                    <li>Sistemas preditivos para diagnósticos</li>
+                                </ul>
+                            </div>
+
+                            <div class="step-card">
+                                <h3>🚀 Módulo 3: Mentoria Psicólogo do Futuro 4.0</h3>
+                                <ul>
+                                    <li>Competências essenciais para psicólogos</li>
+                                    <li>Estratégias de posicionamento digital</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="training-details">
+                            <h3>🎯 Diferenciais Exclusivos:</h3>
+                            <div class="benefits-grid">
+                                <div class="benefit-item">
+                                    <i class="fas fa-user-tie"></i>
+                                    <p>Ministrado por especialistas reconhecidos</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-laptop-code"></i>
+                                    <p>Demonstração ao vivo de ferramentas</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-certificate"></i>
+                                    <p>Automação de Processos</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-gift"></i>
+                                    <p>1 mês gratuito de acompanhamento após a mentoria</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="step-card">
+                            <h3>🧠 Irás aprender a:</h3>
+                            <ul>
+                                <li>Diagnosticar melhor e mais rápido</li>
+                                <li>Elaborar relatórios clínicos em 5 minutos</li>
+                                <li>Usar IA para analisar casos e estruturar sessões</li>
+                                <li>Proteger o teu tempo e valorizar o teu saber</li>
+                            </ul>
+                        </div>
+                
+                        <div class="step-card">
+                            <h3>💰 Preço dos Ingressos:</h3>
+                            <p>Até 10 de Agosto: 38.000 Kz</p>
+                            <p>Após 10 de Agosto: 45.000 Kz</p>
+                        </div>
+
+                        <a href="https://neurais.click/PsicoFuturo" class="cta-button">
+                            <i class="fas fa-ticket"></i>
+                            Garantir Minha Vaga
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="past-events animate">
+                <h2 class="section-title">Eventos Passados</h2>
+                
+                <div class="past-events-grid">
+                    <div class="past-event-card">
+                        <img src="28-Julho.jpg" alt="Evento 28 de Julho" class="past-event-img">
+                        <div class="past-event-content">
+                            <h3>28 de Junho de 2025</h3>
+                            <p>Mediateca de Luanda, 1º de Maio</p>
+                            <p>Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-4ª Edição</p>
+                        </div>
+                    </div>
+                    
+                    <div class="past-event-card">
+                        <img src="31-1.jpg" alt="Evento 31 de Maio" class="past-event-img">
+                        <div class="past-event-content">
+                            <h3>31 de Maio de 2025</h3>
+                            <p>Mediateca de Malanje</p>
+                            <p>Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-3ª Edição</p>
+                        </div>
+                    </div>
+                    
+                    <div class="past-event-card">
+                        <img src="30-1.jpg" alt="Evento 30 de Abril" class="past-event-img">
+                        <div class="past-event-content">
+                            <h3>30 de Abril de 2025</h3>
+                            <p>Luanda</p>
+                            <p>Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-2ª Edição</p>
+                        </div>
+                    </div>
+                    
+                    <div class="past-event-card">
+                        <img src="Janeiro-1.jpg" alt="Evento Janeiro" class="past-event-img">
+                        <div class="past-event-content">
+                            <h3>31 de Janeiro de 2025</h3>
+                            <p>Luanda</p>
+                            <p>Treinamento Psicólogo do Futuro: IA na Prática Clínica e Escolar-1ª Edição</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mentorias" class="section mentoring-section">
+        <div class="container">
+            <h2 class="section-title animate">Programa de Mentoria</h2>
+            
+            <div class="event-card animate">
+                <div class="event-date">
+                    <h3>Psicólogo do Futuro 4.0</h3>
+                </div>
+                
+                <div class="event-content">
+                    <div class="mentoring-steps">
+                        <div class="step-card">
+                            <div class="step-number">01</div>
+                            <h3>Etapa 1: Fundamentos e Mentalidade</h3>
+                            <div class="mentorship-details">
+                                <p>🕒 Duração: 4 semanas</p>
+                                <ul>
+                                    <li>Diagnóstico inicial e definição de metas</li>
+                                    <li>Mentalidade do psicólogo do futuro</li>
+                                    <li>Posicionamento de mercado</li>
+                                    <li>Introdução prática à IA</li>
+                                </ul>
+                                <p class="resultado">✅ Resultado: Plano de acção estruturado e mudança de mentalidade</p>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">02</div>
+                            <h3>Etapa 2: Implementação Prática</h3>
+                            <div class="mentorship-details">
+                                <p>🕒 Duração: 4 semanas</p>
+                                <ul>
+                                    <li>Presença digital e redes sociais</li>
+                                    <li>Automação de documentos clínicos</li>
+                                    <li>Gestão de sessões com IA</li>
+                                    <li>Ferramentas essenciais</li>
+                                </ul>
+                                <p class="resultado">✅ Resultado: Processos automatizados e +50% de eficiência</p>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">03</div>
+                            <h3>Etapa 3: Escalabilidade</h3>
+                            <div class="mentorship-details">
+                                <p>🕒 Duração: 4 semanas</p>
+                                <ul>
+                                    <li>Expansão de serviços com IA</li>
+                                    <li>Análise de resultados</li>
+                                    <li>Métricas e KPIs</li>
+                                    <li>Plano de acção futuro</li>
+                                </ul>
+                                <p class="resultado">✅ Resultado: Plano de crescimento para 6 meses</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mentorship-benefits animate">
+                        <h3>📈 Resultados Garantidos:</h3>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <i class="fas fa-clock"></i>
+                                <p>Redução de 70% no tempo administrativo</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Aumento de 40% na produtividade clínica</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-tools"></i>
+                                <p>Domínio de 10+ ferramentas de IA</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Aumento de eficiência</p>
+                            </div> 
+                        </div>
+                        
+                        <h3 style="margin-top: 2rem;">📈 Bónus Exclusivo:</h3>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <i class="fas fa-certificate"></i>
+                                <p>Avaliação Inicial</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-certificate"></i>
+                                <p>Sessão Individual</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-certificate"></i>
+                                <p>Material de Apoio</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-certificate"></i>
+                                <p>Eventos Exclusivos</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-certificate"></i>
+                                <p>Garantia de Satisfação</p>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-certificate"></i>
+                                <p>Planos Revisados</p>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <a href="#contato" class="cta-button">
+                                <i class="fas fa-calendar-check"></i>
+                                Agendar Mentoria
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testemunhos" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title animate">Depoimentos</h2>
+            
+            <div class="testimonial-carousel">
+                <div class="testimonial-item animate">
+                    <img src="original.jpg" class="depoimento-img" alt="Teobalda Mateus">
+                    <h4>Teobalda Mateus - Psicóloga Clínica</h4>
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>«Antes de conhecer o treinamento Psicólogo do Futuro, minhas expectativas profissionais eram quase inexistentes. Estava sobrecarregada com a carga horária intensa e uma demanda absurda de relatórios — mal sobrava tempo para mim, para simplesmente descomprimir.</p>
+                            <p>Confesso que, no início, fiquei assustada. Tinha medo de me viciar na ferramenta, de perder minha autonomia, de acabar procrastinando ainda mais por não dominar as tecnologias envolvidas. Mas essa visão mudou completamente.</p>
+                            <p>Após o treinamento, experimentei um verdadeiro despertar de mente. Mudou a minha forma de pensar e agir. Hoje, vejo essa ferramenta como uma aliada essencial, principalmente na gestão do tempo, o que me permite realizar minhas actividades com mais leveza e controle.»</p>
+                        </div>
+                        <span class="read-more" onclick="toggleText(this)">Ver mais...</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item animate delay-1">
+                    <img src="2.jpg" class="depoimento-img" alt="Maria Lukamba">
+                    <h4>Maria Lukamba - Psicóloga Clínica e Professora</h4>
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>«Antes, eu pensava que a inteligência artificial era um bicho de sete cabeças, coisa mesmo de outro mundo. Mas, olha, participar nesta formação foi uma bênção grande na minha vida.</p>
+                            <p>Apesar de eu não ser boa com informática, com a inteligência artificial eu senti um apoio que não acaba. É um suporte infinito, uma coisa que rompe barreiras, desfaz bloqueios, dá uma força mesmo!</p>
+                            <p>Foi uma mais-valia enorme. Abriu horizontes grandes, mostrou-me que posso chegar a patamares que antes pareciam incansáveis.»</p>
+                        </div>
+                        <span class="read-more" onclick="toggleText(this)">Ver mais...</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item animate delay-2">
+                    <img src="3.jpg" class="depoimento-img" alt="Fátima Chicolate">
+                    <h4>Fátima Chicolate - Psicóloga</h4>
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>«Antes de participar no Treinamento Psicólogo do Futuro, as minhas expectativas profissionais estavam centradas na prática clínica tradicional. A maioria dos meus atendimentos seguia uma abordagem convencional, e, apesar de buscar constantemente actualizações, sentia que algo estava a mudar no cenário da Psicologia — especialmente no que se referia às novas tecnologias — sem que eu soubesse exactamente como acompanhar essa transformação.</p>
+                            <p>Da inteligência artificial, via com certo ceticismo e até algum receio. Parecia algo distante da realidade da prática clínica. No entanto, com o treinamento, a minha visão mudou de forma significativa. Compreendi como a IA pode ser uma aliada poderosa para ampliar o impacto do nosso trabalho.»</p>
+                        </div>
+                        <span class="read-more" onclick="toggleText(this)">Ver mais...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title animate">Entre em Contacto</h2>
+            
+            <div class="contact-container">
+                <div class="contact-form animate">
+                    <h3>Envie sua mensagem</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telemóvel</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">Tipo de Interesse</label>
+                            <select id="interest" class="form-control" required>
+                                <option value="">Selecione uma opção</option>
+                                <option>Palestra</option>
+                                <option>Treinamento</option>
+                                <option>Workshop</option>
+                                <option>Curso</option>
+                                <option>Mentoria</option>
+                                <option>Outro</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="cta-button">Enviar Mensagem</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info animate delay-1">
+                    <h3>Informações de Contacto</h3>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <p>simao.vic20@gmail.com</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Alvalade, Travessa dos Militares, Luanda, Angola</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <p>+244 943 353 939</p>
+                            <a href="https://wa.me/244943353939" class="whatsapp-button" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enviar Mensagem
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <div class="footer-links">
-            <a href="https://wa.me/244943353939" target="_blank" class="cta-button">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.instagram.com/_simaovicente"><i class="fab fa-instagram" target="_blank"></i></a>
-            <a href="https://www.facebook.com/simao.vic7" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.linkedin.com/in/simão-vicente-241aa431b" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo1">
+                    <img src="21.png" class="logo2" alt="Logotipo de Simão Vicente">
+                    <a href="#" class="logo">
+                        <span>Simão Vicente</span> 
+                        <span>Mentor de Psicólogos</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#eventos">Eventos</a>
+                <a href="#mentorias">Mentorias</a>
+                <a href="#testemunhos">Testemunhos</a>
+                <a href="#contato">Contacto</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://wa.me/244943353939" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/_simaovicente" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/simao.vic7" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/simão-vicente-241aa431b" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            
+            <p class="copyright">© 2025 Psicólogo Simão Vicente. Todos os direitos reservados.</p>
         </div>
-        <p>© 2025 Psicólogo Simão Vicente. Todos os direitos reservados.</p>
     </footer>
-    <script>
-       
-        // Menu Mobile Aprimorado
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
 
+    <script>
+        // Menu Mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+        
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
         });
-
-        // Fechar menu ao clicar fora
-        document.addEventListener('click', (e) => {
-            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
                 nav.classList.remove('active');
-                menuToggle.classList.remove('active');
-            }
-        });
-
-            function toggleText(button) {
-        const textContainer = button.previousElementSibling;
-        textContainer.classList.toggle('expanded');
-        
-        if(textContainer.classList.contains('expanded')) {
-            button.textContent = 'Ver menos...';
-        } else {
-            button.textContent = 'Ver mais...';
-        }
-    }
-
-// Função para inicializar os slideshows
-function initSlideshows() {
-    document.querySelectorAll('.event-slideshow').forEach(slideshow => {
-        const slides = slideshow.querySelectorAll('.slide');
-        const dots = slideshow.querySelectorAll('.dot');
-        let currentSlide = 0;
-        
-        // Função para mostrar um slide específico
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            currentSlide = (n + slides.length) % slides.length;
-            
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-        
-        // Event listeners para os botões de navegação
-        const prevBtn = slideshow.querySelector('.prev');
-        const nextBtn = slideshow.querySelector('.next');
-        
-        prevBtn.addEventListener('click', () => {
-            showSlide(currentSlide - 1);
-        });
-        
-        nextBtn.addEventListener('click', () => {
-            showSlide(currentSlide + 1);
-        });
-        
-        // Event listeners para os pontos
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showSlide(index);
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
             });
         });
         
-        // Inicializa o primeiro slide
-        showSlide(0);
-    });
-}
-
-// Inicializar quando o documento estiver carregado
-document.addEventListener('DOMContentLoaded', initSlideshows);
-           </script>
-
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Animations on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Expandir/colapsar depoimentos
+        function toggleText(button) {
+            const textContainer = button.previousElementSibling;
+            textContainer.classList.toggle('expanded');
+            
+            if(textContainer.classList.contains('expanded')) {
+                button.textContent = 'Ver menos...';
+            } else {
+                button.textContent = 'Ver mais...';
+            }
+        }
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                contactForm.reset();
+            });
+        }
+    </script>
 </body>
 </html>
